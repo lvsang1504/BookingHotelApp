@@ -38,7 +38,7 @@ class _OneStateSwitchState extends State<OneStateSwitch> {
     selected = widget.selected;
     super.initState();
     labelKey = data.map((key, value) => MapEntry(key, GlobalKey()));
-    WidgetsBinding.instance?.addPostFrameCallback((_) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
       var width = widgetWidth -
           (labelKey.values.first.currentContext!.size!.width + 24);
       var height = labelKey.values.first.currentContext!.size!.height;

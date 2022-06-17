@@ -29,7 +29,7 @@ class _BottomNavigationDotBarState extends State<BottomNavigationDotBar> {
 
   @override
   void initState() {
-    WidgetsBinding.instance?.addPostFrameCallback(_afterLayout);
+    WidgetsBinding.instance.addPostFrameCallback(_afterLayout);
     super.initState();
   }
 

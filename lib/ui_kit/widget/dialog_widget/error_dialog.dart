@@ -45,8 +45,8 @@ class ErrorDialog extends StatelessWidget {
       children: [
         Container(
           padding: const EdgeInsets.all(25),
-          child: SvgPicture.asset(
-            '${PATH_IMAGE}ico_start_sad.svg',
+          child: Image.asset(
+            '${PATH_IMAGE}error.png',
             width: 80,
             height: 80,
           ),

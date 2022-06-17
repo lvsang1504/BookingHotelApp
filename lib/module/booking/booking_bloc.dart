@@ -24,7 +24,8 @@ class BookingBloc extends BaseBloc with ChangeNotifier {
 
   Stream<BaseEvent> get bookingRoomStream => _bookingRoomSubject.stream;
 
-  Stream<List<BookedRooms>> get getbookingRoomStream => _getBookingRoomSubject.stream;
+  Stream<List<BookedRooms>> get getbookingRoomStream =>
+      _getBookingRoomSubject.stream;
 
   Sink<List<BookedRooms>> get listFavoriteIdSink => _getBookingRoomSubject.sink;
 
@@ -34,7 +35,7 @@ class BookingBloc extends BaseBloc with ChangeNotifier {
       case BookingEvent:
         handleBooking(event);
         break;
-       case CancleBookingEvent:
+      case CancleBookingEvent:
         handleCancleBooking(event);
         break;
       default:
@@ -42,25 +43,20 @@ class BookingBloc extends BaseBloc with ChangeNotifier {
     }
   }
 
-  void handleCancleBooking(BaseEvent event)  async {
-     CancleBookingEvent e = event as CancleBookingEvent;
+  void handleCancleBooking(BaseEvent event) async {
+    CancleBookingEvent e = event as CancleBookingEvent;
 
-     await bookingRepository
-        .cancleBookingId(
-      e.id
-    )
-        .then((value) {
+    await bookingRepository.cancleBookingId(e.id).then((value) {
       doShowDialog(
-          description: value.data!,
-          typeDialog: DIALOG_CONGRATULATE_BUTTON);
+          description: value.data!, typeDialog: DIALOG_CONGRATULATE_BUTTON);
     }, onError: (e) {
       doShowDialog(
-          description: 'Booking fail !!!\nError: $e', typeDialog: DIALOG_ONE_BUTTON);
+          description: 'Booking fail !!!\nError: $e',
+          typeDialog: DIALOG_ONE_BUTTON);
     });
   }
 
   Future<void> loadBookedHistoryList() async {
-
     await bookingRepository.getAllBookingHistory().then(
       (result) async {
         if (result.bookedRooms!.isNotEmpty) {
@@ -123,9 +119,9 @@ class BookingBloc extends BaseBloc with ChangeNotifier {
           typeDialog: DIALOG_CONGRATULATE_BUTTON);
     }, onError: (e) {
       doShowDialog(
-          description: 'Booking fail !!!', typeDialog: DIALOG_ONE_BUTTON);
+        title: "Lỗi đặt phòng",
+          description: 'Booking fail !!!\n ${e.toString()}',
+          typeDialog: ERROR_DIALOG);
     });
   }
-
-  
 }

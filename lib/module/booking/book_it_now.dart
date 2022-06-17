@@ -9,6 +9,7 @@ import 'package:book_hotel/ui_kit/widget/base_widget/bloc_listener.dart';
 import 'package:book_hotel/ui_kit/widget/calendar_popup_view.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:omni_datetime_picker/omni_datetime_picker.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -85,8 +86,7 @@ class _BookingRoomState extends State<BookingRoom> {
     super.initState();
   }
 
-  handleEvent(BaseEvent event) {
-  }
+  handleEvent(BaseEvent event) {}
 
   DateTime selectedDate = DateTime.now();
 
@@ -418,23 +418,54 @@ class _BookingRoomState extends State<BookingRoom> {
     );
   }
 
-  void showDemoDialog({BuildContext? context}) {
-    showDialog<dynamic>(
+  void showDemoDialog({BuildContext? context}) async {
+    List<DateTime>? dateTimeList = await showOmniDateTimeRangePicker(
       context: context!,
-      builder: (BuildContext context) => CalendarPopupView(
-        barrierDismissible: true,
-        minimumDate: DateTime.now(),
-        //  maximumDate: DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day + 10),
-        initialEndDate: endDate,
-        initialStartDate: startDate,
-        onApplyClick: (DateTime startData, DateTime endData) {
-          setState(() {
-            startDate = startData;
-            endDate = endData;
-          });
-        },
-        onCancelClick: () {},
+      primaryColor: Colors.cyan,
+      backgroundColor: Colors.grey[900],
+      calendarTextColor: Colors.white,
+      tabTextColor: Colors.white,
+      unselectedTabBackgroundColor: Colors.grey[700],
+      buttonTextColor: Colors.white,
+      timeSpinnerTextStyle:
+          const TextStyle(color: Colors.white70, fontSize: 18),
+      timeSpinnerHighlightedTextStyle:
+          const TextStyle(color: Colors.white, fontSize: 24),
+      is24HourMode: false,
+      isShowSeconds: false,
+      startInitialDate: DateTime.now(),
+      startFirstDate: DateTime(1600).subtract(const Duration(days: 3652)),
+      startLastDate: DateTime.now().add(
+        const Duration(days: 3652),
       ),
+      endInitialDate: DateTime.now(),
+      endFirstDate: DateTime(1600).subtract(const Duration(days: 3652)),
+      endLastDate: DateTime.now().add(
+        const Duration(days: 3652),
+      ),
+      borderRadius: const Radius.circular(16),
     );
+
+    setState(() {
+      startDate = dateTimeList![0];
+      endDate = dateTimeList[1];
+    });
+    // showDialog<dynamic>(
+    //   context: context!,
+    //   builder: (BuildContext context) => CalendarPopupView(
+    //     barrierDismissible: true,
+    //     minimumDate: DateTime.now(),
+    //     //  maximumDate: DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day + 10),
+    //     initialEndDate: endDate,
+    //     initialStartDate: startDate,
+    //     onApplyClick: (DateTime startData, DateTime endData) {
+    //       setState(() {
+    //         startDate = startData;
+    //         endDate = endData;
+    //       });
+    //     },
+    //     onCancelClick: () {},
+    //   ),
+    // );
   }
 }

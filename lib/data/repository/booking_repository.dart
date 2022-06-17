@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:book_hotel/api/model/reponse_existed.dart';
 import 'package:book_hotel/data/service/booking_service.dart';
 import 'package:book_hotel/shared_code/model/booked.dart';
 import 'package:book_hotel/shared_code/model/booked_data.dart';
@@ -22,14 +23,15 @@ class BookingRepository {
           .pushCreateBooking(idRoom, checkIn, checkOut, numberOfDays)
           .then((value) {
         if (value.statusCode == 400) {
-           c.completeError("Kết nối bị hết hạn 400");
+          c.completeError("Kết nối bị hết hạn 400");
         } else {
           Booked? data =
               BookedResponse.fromJson(value.data).data; //response.data;
           c.complete(data);
         }
       }, onError: (e) {
-        c.completeError("Kết nối bị hết hạn 400");
+        ApiResponse data = ApiResponse.fromJson(e.response?.data);
+        c.completeError(data.error!);
       });
     } on DioError catch (e) {
       if (e.type == DioErrorType.connectTimeout) {
@@ -43,20 +45,18 @@ class BookingRepository {
     return c.future;
   }
 
-
   Future<BookedData> getAllBookingHistory() async {
     var c = Completer<BookedData>();
 
     try {
-      final response = await bookingService
-          .getAllBookingHistory()
-          .then((value) {
+      final response =
+          await bookingService.getAllBookingHistory().then((value) {
         if (value.statusCode == 400) {
-           c.completeError("Kết nối bị hết hạn 400");
+          c.completeError("Kết nối bị hết hạn 400");
         } else {
           BookedData? data =
               Reservation.fromJson(value.data).data; //response.data;
-              print(value.data);
+          print(value.data);
           c.complete(data);
         }
       }, onError: (e) {
@@ -73,7 +73,6 @@ class BookingRepository {
 
     return c.future;
   }
-
 
   Future<CancelBookingResponse> cancleBookingId(String id) async {
     var c = Completer<CancelBookingResponse>();
@@ -81,7 +80,8 @@ class BookingRepository {
     try {
       final response = await bookingService.cancleBooking(id);
 
-      CancelBookingResponse data = CancelBookingResponse.fromJson(response.data) ;
+      CancelBookingResponse data =
+          CancelBookingResponse.fromJson(response.data);
 
       c.complete(data);
     } on DioError catch (e) {
