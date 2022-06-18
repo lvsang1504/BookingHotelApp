@@ -2,6 +2,7 @@ import 'package:book_hotel/module/booking/booking_bloc.dart';
 import 'package:book_hotel/module/booking/event/booking_event.dart';
 import 'package:book_hotel/module/room/ui/room_page.dart';
 import 'package:book_hotel/shared_code/model/booked_rooms.dart';
+import 'package:book_hotel/shared_code/responsive/responsive.dart';
 import 'package:book_hotel/ui_kit/SupportingLibrary/ratting/rating.dart';
 import 'package:flutter/material.dart';
 import 'package:giff_dialog/giff_dialog.dart';
@@ -51,7 +52,8 @@ class _BookedItemState extends State<BookedItem> {
       child: Padding(
         padding: const EdgeInsets.only(left: 15.0, right: 15.0, top: 20.0),
         child: Container(
-          height: 280.0,
+          height: Responsive.isDesktop(context) ? 400.0 : 280.0,
+          width: 100,
           decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: const BorderRadius.all(Radius.circular(10.0)),
@@ -63,7 +65,7 @@ class _BookedItemState extends State<BookedItem> {
               ]),
           child: Column(children: [
             Container(
-              height: 165.0,
+              height: Responsive.isDesktop(context) ? 300 : 165.0,
               width: double.infinity,
               decoration: BoxDecoration(
                 borderRadius: const BorderRadius.only(
