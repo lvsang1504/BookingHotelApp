@@ -11,7 +11,6 @@ import 'package:book_hotel/ui_kit/widget/air_18_text_field.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../common/common.dart';

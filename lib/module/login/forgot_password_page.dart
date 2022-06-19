@@ -64,7 +64,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
         loadingCubit.hideLoading();
         Navigator.push(context, OtpPage.route(
             isRegister: false, otpCubit: otpCubit,
-            data: {"phone": phoneNumberController.text}));
+            data: {"phoneNumber": phoneNumberController.text}));
       } else if(state is OtpStateSendFailed){
         loadingCubit.hideLoading();
         showDialog(
