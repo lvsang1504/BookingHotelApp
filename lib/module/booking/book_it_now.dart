@@ -13,6 +13,8 @@ import 'package:omni_datetime_picker/omni_datetime_picker.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+final formatCurrency = NumberFormat.simpleCurrency();
+
 class BookingRoomPage extends StatefulWidget {
   const BookingRoomPage({Key? key, required this.roomDetail}) : super(key: key);
   final RoomDetail roomDetail;
@@ -170,71 +172,14 @@ class _BookingRoomState extends State<BookingRoom> {
                             mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              const Padding(
-                                padding: EdgeInsets.only(
-                                    left: 20.0,
-                                    right: 20.0,
-                                    top: 20.0,
-                                    bottom: 2.0),
-                                child: Text(
-                                  'Location',
-                                  style: TextStyle(
-                                      fontFamily: "Sofia",
-                                      fontWeight: FontWeight.w700,
-                                      fontSize: 17.0),
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.only(
-                                    left: 10.0, right: 10.0, top: 10.0),
-                                child: Container(
-                                  height: 50.0,
-                                  width: double.infinity,
-                                  decoration: BoxDecoration(
-                                      boxShadow: [
-                                        BoxShadow(
-                                            blurRadius: 10.0,
-                                            color: Colors.black12
-                                                .withOpacity(0.1)),
-                                      ],
-                                      color: Colors.white,
-                                      borderRadius: const BorderRadius.all(
-                                          Radius.circular(10.0))),
-                                  child: Center(
-                                    child: Padding(
-                                      padding: const EdgeInsets.only(
-                                          left: 15.0, right: 15.0),
-                                      child: Theme(
-                                        data: ThemeData(
-                                          highlightColor: Colors.white,
-                                          hintColor: Colors.white,
-                                        ),
-                                        child: TextFormField(
-                                            onSaved: (input) =>
-                                                location = input!,
-                                            controller: locationController,
-                                            decoration: const InputDecoration(
-                                              hintText: "location",
-                                              hintStyle: TextStyle(
-                                                  fontFamily: "Sofia",
-                                                  color: Colors.black),
-                                              enabledBorder:
-                                                  UnderlineInputBorder(
-                                                borderSide: BorderSide(
-                                                    color: Colors.white,
-                                                    width: 1.0,
-                                                    style: BorderStyle.none),
-                                              ),
-                                            )),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
+                              rowItem('Name Room', widget.roomDetail.name!),
 
-                              const SizedBox(
-                                height: 20.0,
-                              ),
+                              rowItem(
+                                  "Price",
+                                  formatCurrency
+                                      .format(widget.roomDetail.price!)),
+
+                              rowItem("Location", widget.roomDetail.location!),
 
                               const SizedBox(
                                 height: 50.0,
@@ -438,19 +383,77 @@ class _BookingRoomState extends State<BookingRoom> {
     );
   }
 
+  Widget rowItem(String title, String value) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(
+              left: 20.0, right: 20.0, top: 20.0, bottom: 2.0),
+          child: Text(
+            title,
+            style: const TextStyle(
+                fontFamily: "Sofia",
+                fontWeight: FontWeight.w700,
+                fontSize: 17.0),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(left: 10.0, right: 10.0, top: 10.0),
+          child: Container(
+            height: 50.0,
+            width: double.infinity,
+            decoration: BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                      blurRadius: 10.0, color: Colors.black12.withOpacity(0.1)),
+                ],
+                color: Colors.white,
+                borderRadius: const BorderRadius.all(Radius.circular(10.0))),
+            child: Center(
+              child: Padding(
+                padding: const EdgeInsets.only(left: 15.0, right: 15.0),
+                child: Theme(
+                  data: ThemeData(
+                    highlightColor: Colors.white,
+                    hintColor: Colors.white,
+                  ),
+                  child: TextFormField(
+                      controller: locationController,
+                      decoration: InputDecoration(
+                        hintText: value,
+                        hintStyle: const TextStyle(
+                            fontFamily: "Sofia", color: Colors.black),
+                        enabledBorder: const UnderlineInputBorder(
+                          borderSide: BorderSide(
+                              color: Colors.white,
+                              width: 1.0,
+                              style: BorderStyle.none),
+                        ),
+                      )),
+                ),
+              ),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
   void showDemoDialog({BuildContext? context}) async {
     List<DateTime>? dateTimeList = await showOmniDateTimeRangePicker(
       context: context!,
       primaryColor: Colors.cyan,
-      backgroundColor: Colors.grey[900],
-      calendarTextColor: Colors.white,
-      tabTextColor: Colors.white,
-      unselectedTabBackgroundColor: Colors.grey[700],
-      buttonTextColor: Colors.white,
+      backgroundColor: Colors.white,
+      calendarTextColor: Colors.black,
+      tabTextColor: Colors.black,
+      unselectedTabBackgroundColor: Colors.grey,
+      buttonTextColor: Colors.black,
       timeSpinnerTextStyle:
-          const TextStyle(color: Colors.white70, fontSize: 18),
+          const TextStyle(color: Colors.black54, fontSize: 18),
       timeSpinnerHighlightedTextStyle:
-          const TextStyle(color: Colors.white, fontSize: 24),
+          const TextStyle(color: Colors.black, fontSize: 24),
       is24HourMode: false,
       isShowSeconds: false,
       startInitialDate: DateTime.now(),

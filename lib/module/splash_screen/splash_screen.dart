@@ -3,6 +3,7 @@ import 'package:book_hotel/common/define_image.dart';
 import 'package:book_hotel/data/shared_preferences/shared_preferences.dart';
 import 'package:book_hotel/hive/hive_service.dart';
 import 'package:book_hotel/injection/injection.dart';
+import 'package:book_hotel/shared_code/responsive/responsive.dart';
 import 'package:book_hotel/utils/materials/app_color.dart';
 import 'package:book_hotel/utils/materials/constant.dart';
 import 'package:book_hotel/utils/materials/system.dart';
@@ -83,15 +84,15 @@ class _SplashPageState extends State<SplashPage> {
       if (value != null && value.toString().isNotEmpty) {
         print('Navigate Splash Screen to Home Page');
         var hive = getIt<HiveService>();
-        if(hive.showSelectionPage()){
+        if (hive.showSelectionPage()) {
           Navigator.of(context).pushReplacement(
-              PageRouteBuilder(
-                  pageBuilder: (_, __, ___) => const BottomNavBar(
-                    userID: "11",
-                  ),
+            PageRouteBuilder(
+              pageBuilder: (_, __, ___) => const BottomNavBar(
+                userID: "11",
               ),
+            ),
           );
-        }else{
+        } else {
           Navigator.pushReplacementNamed(context, Route_Named_HomePage);
         }
         return;
@@ -106,61 +107,63 @@ class _SplashPageState extends State<SplashPage> {
     sizeDevice = MediaQuery.of(context).size;
     return Scaffold(
       body: Center(
-        child: Container(
-          child: Stack(
-            children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.all(10),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    const Spacer(),
-                    Image.asset(
-                      "assets/images/logo_app.png",
-                      width: 200,
-                      height: 200,
-                      fit: BoxFit.scaleDown,
-                    ),
-                    const Spacer(),
-                    Image.asset(
-                      "assets/images/banner.png",
-                      fit: BoxFit.scaleDown,
-                    ),
-                    // const CircularProgressIndicator(
-                    //   backgroundColor: Colors.white,
-                    //   valueColor: AlwaysStoppedAnimation<Color>(Colors.green),
-                    //   semanticsLabel: 'Loading',
-                    // ),
-                    const Spacer(),
-                    Container(
-                      margin: const EdgeInsets.all(20),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            '© 2022 - Designed by ',
-                            style: TextStyle(
-                              color: AppColor.primaryHintColor,
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                            ),
+        child: Stack(
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.all(10),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const Spacer(),
+                  Image.asset(
+                    "assets/images/logo_app.png",
+                    width: 200,
+                    height: 200,
+                    fit: BoxFit.scaleDown,
+                  ),
+                  const Spacer(),
+                  Image.asset(
+                    "assets/images/banner.png",
+                    fit: BoxFit.scaleDown,
+                     width: 200,
+                    height: 200,
+                  ),
+                  // const CircularProgressIndicator(
+                  //   backgroundColor: Colors.white,
+                  //   valueColor: AlwaysStoppedAnimation<Color>(Colors.green),
+                  //   semanticsLabel: 'Loading',
+                  // ),
+                  const Spacer(),
+                  Responsive.isDesktop(context)
+                      ? SizedBox()
+                      : Container(
+                          margin: const EdgeInsets.all(20),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                '© 2022 - Designed by ',
+                                style: TextStyle(
+                                  color: AppColor.primaryHintColor,
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              Text(
+                                'Ung_Luan',
+                                style: TextStyle(
+                                  color: AppColor.colorOrange,
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
                           ),
-                          Text(
-                            'Ung_Luan',
-                            style: TextStyle(
-                              color: AppColor.colorOrange,
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
+                        ),
+                ],
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
