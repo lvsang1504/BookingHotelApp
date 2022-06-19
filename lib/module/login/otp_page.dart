@@ -69,7 +69,7 @@ class _OtpPageState extends State<OtpPage> {
   void initState() {
     super.initState();
     countdownController = CountdownController(
-        duration: const Duration(seconds: 60),
+        duration: const Duration(seconds: 6),
         onEnd: () {
           setState(() {
             isTimeOut = true;
@@ -78,7 +78,7 @@ class _OtpPageState extends State<OtpPage> {
           });
         });
 
-    phone = widget.data?['phone'] ?? '';
+    phone = widget.data?['phoneNumber'] ?? '';
     otpCubit = widget.otpCubit;
     otpCubit.stream.listen((state) async {
       if (state is OtpStateLoading) {
@@ -304,6 +304,7 @@ class _OtpPageState extends State<OtpPage> {
                                     onPressed: !isTimeOut
                                         ? null
                                         : () async {
+                                      print('${phone}');
                                             otpCubit.sendOtp(
                                                 "+84" + phone.substring(1));
                                           },

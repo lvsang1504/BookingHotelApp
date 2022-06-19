@@ -282,7 +282,8 @@ class _RegisterPageState extends State<RegisterPage> {
                                       child: SvgPicture.asset(
                                         'assets/images/arrow-left-icon.svg',
                                         color: orangeColor,
-                                      )),
+                                      ),
+                                  ),
                                   Container(
                                     child: Image.asset(
                                       "assets/images/logo_app.png",
@@ -454,7 +455,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                           ),
                                           Expanded(
                                             child: Text(
-                                              'Check Error',
+                                              'Please agree with our terms and conditions.',
                                               textAlign: TextAlign.left,
                                               style: TextStyle(
                                                   color: Theme.of(context)
