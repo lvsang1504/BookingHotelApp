@@ -204,14 +204,18 @@ class _RegisterPageState extends State<RegisterPage> {
               positive: "Let's go",
               onPositiveTap: () {
                 Navigator.pop(context);
-                // registerCubit.completed();
+                // Navigator.popUntil(context, (route) => route.isFirst);
+                registerCubit.completed();
               },
               onNegativeTap: () {},
               isShowNegative: false,
             ),
           );
         } else if (state is RegisterStateCompleted) {
-          Navigator.pop(context);
+          // Navigator.pop(context);
+          Navigator.popUntil(context, (route) => route.isFirst);
+        }else{
+          loadingCubit.hideLoading();
         }
       });
     });

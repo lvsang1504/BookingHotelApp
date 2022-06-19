@@ -53,6 +53,7 @@ class _MyAppState extends State<MyApp> {
       DeviceOrientation.portraitDown,
     ]);
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Book Hotel',
       theme: ThemeData(
         textTheme: GoogleFonts.poppinsTextTheme(Theme.of(context).textTheme),

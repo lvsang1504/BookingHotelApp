@@ -69,7 +69,7 @@ class _OtpPageState extends State<OtpPage> {
   void initState() {
     super.initState();
     countdownController = CountdownController(
-        duration: const Duration(seconds: 6),
+        duration: const Duration(seconds: 15),
         onEnd: () {
           setState(() {
             isTimeOut = true;
