@@ -5,13 +5,11 @@ import 'package:book_hotel/data/repository/booking_repository.dart';
 import 'package:book_hotel/data/service/booking_service.dart';
 import 'package:book_hotel/module/booking/booked_item.dart';
 import 'package:book_hotel/module/booking/booking_bloc.dart';
-import 'package:book_hotel/module/booking/event/booking_event.dart';
 import 'package:book_hotel/shared_code/model/booked_rooms.dart';
 import 'package:book_hotel/ui_kit/widget/air_18_loading_view.dart';
 import 'package:book_hotel/ui_kit/widget/base_widget/bloc_listener.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shimmer/shimmer.dart';
 
 class BookingHistoryPage extends StatefulWidget {

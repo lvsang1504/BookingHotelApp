@@ -4,9 +4,9 @@ import 'package:book_hotel/data/repository/booking_repository.dart';
 import 'package:book_hotel/data/service/booking_service.dart';
 import 'package:book_hotel/module/booking/booking_bloc.dart';
 import 'package:book_hotel/module/booking/event/booking_event.dart';
+import 'package:book_hotel/module/profile/credit_card.dart';
 import 'package:book_hotel/shared_code/model/room_detail.dart';
 import 'package:book_hotel/ui_kit/widget/base_widget/bloc_listener.dart';
-import 'package:book_hotel/ui_kit/widget/calendar_popup_view.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:omni_datetime_picker/omni_datetime_picker.dart';
@@ -16,6 +16,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 class BookingRoomPage extends StatefulWidget {
   const BookingRoomPage({Key? key, required this.roomDetail}) : super(key: key);
   final RoomDetail roomDetail;
+
   @override
   State<BookingRoomPage> createState() => _BookingRoomPageState();
 }
@@ -240,46 +241,65 @@ class _BookingRoomState extends State<BookingRoom> {
                               ),
 
                               /// Button
-                              Padding(
-                                padding: const EdgeInsets.only(
-                                    left: 15.0, right: 15.0, bottom: 20.0),
-                                child: InkWell(
-                                  onTap: () async {
-                                    print(
-                                        "${widget.roomDetail.id.toString()}  ${DateFormat("dd-MM-yyyy").format(startDate)} ${DateFormat("dd-MM-yyyy").format(endDate)} ${endDate.difference(startDate).inDays}");
-                                    bloc.event.add(BookingEvent(
-                                        idRoom: widget.roomDetail.id.toString(),
-                                        checkIn: DateFormat("dd-MM-yyyy")
-                                            .format(startDate),
-                                        checkOut: DateFormat("dd-MM-yyyy")
-                                            .format(endDate),
-                                        numberOfDays: endDate
-                                            .difference(startDate)
-                                            .inDays));
-                                  },
-                                  child: Container(
-                                    height: 55.0,
-                                    width: double.infinity,
-                                    decoration: const BoxDecoration(
-                                        borderRadius: BorderRadius.all(
-                                            Radius.circular(5.0)),
-                                        gradient: LinearGradient(
-                                            colors: [
-                                              Color(0xFF09314F),
-                                              Color(0xFF09314F),
-                                            ],
-                                            begin: FractionalOffset(0.0, 0.0),
-                                            end: FractionalOffset(1.0, 0.0),
-                                            stops: [0.0, 1.0],
-                                            tileMode: TileMode.clamp)),
-                                    child: Center(
-                                      child: Text(
-                                        _book,
-                                        style: const TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 19.0,
-                                            fontFamily: "Sofia",
-                                            fontWeight: FontWeight.w600),
+                              GestureDetector(
+                                onTap: () {
+                                  print('tap');
+                                },
+                                child: Padding(
+                                  padding: const EdgeInsets.only(
+                                      left: 15.0, right: 15.0, bottom: 20.0),
+                                  child: InkWell(
+                                    onTap: () async {
+                                      print(
+                                          "${widget.roomDetail.id.toString()}  ${DateFormat("dd-MM-yyyy").format(startDate)} ${DateFormat("dd-MM-yyyy").format(endDate)} ${endDate.difference(startDate).inDays}");
+                                      // bloc.event.add(
+                                      //   BookingEvent(
+                                      //     idRoom:
+                                      //         widget.roomDetail.id.toString(),
+                                      //     checkIn: DateFormat("dd-MM-yyyy")
+                                      //         .format(startDate),
+                                      //     checkOut: DateFormat("dd-MM-yyyy")
+                                      //         .format(endDate),
+                                      //     numberOfDays: endDate
+                                      //         .difference(startDate)
+                                      //         .inDays,
+                                      //   ),
+                                      // );
+                                      Navigator.push(
+                                        context,
+                                        AddCreditCard.route(
+                                          roomId: widget.roomDetail.id.toString(),
+                                          checkIn: DateFormat("yyyy-MM-dd").format(startDate),
+                                          checkOut: DateFormat("yyyy-MM-dd").format(endDate),
+                                          clientMessage: "clientMessage",
+                                        ),
+                                      );
+                                      print("object");
+                                    },
+                                    child: Container(
+                                      height: 55.0,
+                                      width: double.infinity,
+                                      decoration: const BoxDecoration(
+                                          borderRadius: BorderRadius.all(
+                                              Radius.circular(5.0)),
+                                          gradient: LinearGradient(
+                                              colors: [
+                                                Color(0xFF09314F),
+                                                Color(0xFF09314F),
+                                              ],
+                                              begin: FractionalOffset(0.0, 0.0),
+                                              end: FractionalOffset(1.0, 0.0),
+                                              stops: [0.0, 1.0],
+                                              tileMode: TileMode.clamp)),
+                                      child: Center(
+                                        child: Text(
+                                          _book,
+                                          style: const TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 19.0,
+                                              fontFamily: "Sofia",
+                                              fontWeight: FontWeight.w600),
+                                        ),
                                       ),
                                     ),
                                   ),

@@ -46,7 +46,7 @@ class BookingBloc extends BaseBloc with ChangeNotifier {
   void handleCancleBooking(BaseEvent event) async {
     CancleBookingEvent e = event as CancleBookingEvent;
 
-    await bookingRepository.cancleBookingId(e.id).then((value) {
+    await bookingRepository.cancelBookingId(e.id).then((value) {
       doShowDialog(
           description: value.data!, typeDialog: DIALOG_CONGRATULATE_BUTTON);
     }, onError: (e) {
@@ -119,9 +119,7 @@ class BookingBloc extends BaseBloc with ChangeNotifier {
           typeDialog: DIALOG_CONGRATULATE_BUTTON);
     }, onError: (e) {
       doShowDialog(
-        title: "Lỗi đặt phòng",
-          description: 'Booking fail !!!\n ${e.toString()}',
-          typeDialog: ERROR_DIALOG);
+          description: 'Booking fail !!!', typeDialog: DIALOG_ONE_BUTTON);
     });
   }
 }

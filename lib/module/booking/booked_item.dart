@@ -9,6 +9,7 @@ import 'package:giff_dialog/giff_dialog.dart';
 class BookedItem extends StatefulWidget {
   final BookedRooms booked;
   final BookingBloc bloc;
+
   const BookedItem({Key? key, required this.booked, required this.bloc})
       : super(key: key);
 
@@ -35,10 +36,11 @@ class _BookedItemState extends State<BookedItem> {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.of(context).push(PageRouteBuilder(
+        Navigator.of(context).push(
+          PageRouteBuilder(
             pageBuilder: (_, __, ___) => RoomPage(
-                  id: widget.booked.roomId.toString(),
-                ),
+              id: widget.booked.roomId.toString(),
+            ),
             transitionDuration: const Duration(milliseconds: 1000),
             transitionsBuilder:
                 (_, Animation<double> animation, __, Widget child) {
@@ -46,7 +48,9 @@ class _BookedItemState extends State<BookedItem> {
                 opacity: animation.value,
                 child: child,
               );
-            }));
+            },
+          ),
+        );
       },
       child: Padding(
         padding: const EdgeInsets.only(left: 15.0, right: 15.0, top: 20.0),
@@ -114,17 +118,14 @@ class _BookedItemState extends State<BookedItem> {
                                             ),
                                             onOkButtonPressed: () {
                                               //Cancle booking
-
                                               widget.bloc.event.add(
                                                 CancleBookingEvent(
                                                   id: widget.booked.bookingId!
                                                       .toString(),
                                                 ),
                                               );
-
                                               widget.bloc
                                                   .loadBookedHistoryList();
-
                                               Navigator.pop(context);
                                             },
                                           ));
