@@ -233,7 +233,7 @@ class _RegisterPageState extends State<RegisterPage> {
     phoneNumberController.text = '0382916020';
     passwordController.text = 'Passlagi123';
     repeatPasswordController.text = 'Passlagi123';
-    birthDateController.text = "08-10-2000";
+    birthDateController.text = "08/10/2000";
     emailNotifier.value = true;
     passwordNotifier.value = true;
     repeatPasswordNotifier.value = true;
@@ -552,8 +552,9 @@ class _RegisterPageState extends State<RegisterPage> {
         "email": emailController.text,
         "password": passwordController.text,
         "sex": genderCubit.item,
-        "birthDay": formatDate(birthDateController.text)
+        "birthday": formatDate(birthDateController.text)
       };
+      print(data);
       await otpCubit.checkEmail(emailController.text);
     }
   }

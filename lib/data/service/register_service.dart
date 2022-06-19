@@ -5,6 +5,7 @@ class RegisterService {
   final String tagRegister = "/auth/register";
   final String tagGender = "/user/sex";
   Future<Response> register({required Map<String, dynamic> data}) async {
+    print('DX:$data');
     return AppClient.instance.dio.post(tagRegister, data: data);
   }
 
