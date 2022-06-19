@@ -23,6 +23,7 @@ mixin _$ProfileState {
     required TResult Function(Data user) updateProfileSucessfull,
     required TResult Function(String message) updateProfileFailure,
     required TResult Function(String message) failure,
+    required TResult Function() updateProfileCompleted,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -32,6 +33,7 @@ mixin _$ProfileState {
     TResult Function(Data user)? updateProfileSucessfull,
     TResult Function(String message)? updateProfileFailure,
     TResult Function(String message)? failure,
+    TResult Function()? updateProfileCompleted,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -41,6 +43,7 @@ mixin _$ProfileState {
     TResult Function(Data user)? updateProfileSucessfull,
     TResult Function(String message)? updateProfileFailure,
     TResult Function(String message)? failure,
+    TResult Function()? updateProfileCompleted,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -53,6 +56,8 @@ mixin _$ProfileState {
     required TResult Function(UpdateProfileStateFailure value)
         updateProfileFailure,
     required TResult Function(ProfileStateFailure value) failure,
+    required TResult Function(UpdateProfileStateCompleted value)
+        updateProfileCompleted,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +68,7 @@ mixin _$ProfileState {
         updateProfileSucessfull,
     TResult Function(UpdateProfileStateFailure value)? updateProfileFailure,
     TResult Function(ProfileStateFailure value)? failure,
+    TResult Function(UpdateProfileStateCompleted value)? updateProfileCompleted,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -73,6 +79,7 @@ mixin _$ProfileState {
         updateProfileSucessfull,
     TResult Function(UpdateProfileStateFailure value)? updateProfileFailure,
     TResult Function(ProfileStateFailure value)? failure,
+    TResult Function(UpdateProfileStateCompleted value)? updateProfileCompleted,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -140,6 +147,7 @@ class _$ProfileStateLoading implements ProfileStateLoading {
     required TResult Function(Data user) updateProfileSucessfull,
     required TResult Function(String message) updateProfileFailure,
     required TResult Function(String message) failure,
+    required TResult Function() updateProfileCompleted,
   }) {
     return loading();
   }
@@ -152,6 +160,7 @@ class _$ProfileStateLoading implements ProfileStateLoading {
     TResult Function(Data user)? updateProfileSucessfull,
     TResult Function(String message)? updateProfileFailure,
     TResult Function(String message)? failure,
+    TResult Function()? updateProfileCompleted,
   }) {
     return loading?.call();
   }
@@ -164,6 +173,7 @@ class _$ProfileStateLoading implements ProfileStateLoading {
     TResult Function(Data user)? updateProfileSucessfull,
     TResult Function(String message)? updateProfileFailure,
     TResult Function(String message)? failure,
+    TResult Function()? updateProfileCompleted,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -182,6 +192,8 @@ class _$ProfileStateLoading implements ProfileStateLoading {
     required TResult Function(UpdateProfileStateFailure value)
         updateProfileFailure,
     required TResult Function(ProfileStateFailure value) failure,
+    required TResult Function(UpdateProfileStateCompleted value)
+        updateProfileCompleted,
   }) {
     return loading(this);
   }
@@ -195,6 +207,7 @@ class _$ProfileStateLoading implements ProfileStateLoading {
         updateProfileSucessfull,
     TResult Function(UpdateProfileStateFailure value)? updateProfileFailure,
     TResult Function(ProfileStateFailure value)? failure,
+    TResult Function(UpdateProfileStateCompleted value)? updateProfileCompleted,
   }) {
     return loading?.call(this);
   }
@@ -208,6 +221,7 @@ class _$ProfileStateLoading implements ProfileStateLoading {
         updateProfileSucessfull,
     TResult Function(UpdateProfileStateFailure value)? updateProfileFailure,
     TResult Function(ProfileStateFailure value)? failure,
+    TResult Function(UpdateProfileStateCompleted value)? updateProfileCompleted,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -292,6 +306,7 @@ class _$ProfileStateSuccess implements ProfileStateSuccess {
     required TResult Function(Data user) updateProfileSucessfull,
     required TResult Function(String message) updateProfileFailure,
     required TResult Function(String message) failure,
+    required TResult Function() updateProfileCompleted,
   }) {
     return success(user);
   }
@@ -304,6 +319,7 @@ class _$ProfileStateSuccess implements ProfileStateSuccess {
     TResult Function(Data user)? updateProfileSucessfull,
     TResult Function(String message)? updateProfileFailure,
     TResult Function(String message)? failure,
+    TResult Function()? updateProfileCompleted,
   }) {
     return success?.call(user);
   }
@@ -316,6 +332,7 @@ class _$ProfileStateSuccess implements ProfileStateSuccess {
     TResult Function(Data user)? updateProfileSucessfull,
     TResult Function(String message)? updateProfileFailure,
     TResult Function(String message)? failure,
+    TResult Function()? updateProfileCompleted,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -334,6 +351,8 @@ class _$ProfileStateSuccess implements ProfileStateSuccess {
     required TResult Function(UpdateProfileStateFailure value)
         updateProfileFailure,
     required TResult Function(ProfileStateFailure value) failure,
+    required TResult Function(UpdateProfileStateCompleted value)
+        updateProfileCompleted,
   }) {
     return success(this);
   }
@@ -347,6 +366,7 @@ class _$ProfileStateSuccess implements ProfileStateSuccess {
         updateProfileSucessfull,
     TResult Function(UpdateProfileStateFailure value)? updateProfileFailure,
     TResult Function(ProfileStateFailure value)? failure,
+    TResult Function(UpdateProfileStateCompleted value)? updateProfileCompleted,
   }) {
     return success?.call(this);
   }
@@ -360,6 +380,7 @@ class _$ProfileStateSuccess implements ProfileStateSuccess {
         updateProfileSucessfull,
     TResult Function(UpdateProfileStateFailure value)? updateProfileFailure,
     TResult Function(ProfileStateFailure value)? failure,
+    TResult Function(UpdateProfileStateCompleted value)? updateProfileCompleted,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -452,6 +473,7 @@ class _$UpdateProfileStateSucessull implements UpdateProfileStateSucessull {
     required TResult Function(Data user) updateProfileSucessfull,
     required TResult Function(String message) updateProfileFailure,
     required TResult Function(String message) failure,
+    required TResult Function() updateProfileCompleted,
   }) {
     return updateProfileSucessfull(user);
   }
@@ -464,6 +486,7 @@ class _$UpdateProfileStateSucessull implements UpdateProfileStateSucessull {
     TResult Function(Data user)? updateProfileSucessfull,
     TResult Function(String message)? updateProfileFailure,
     TResult Function(String message)? failure,
+    TResult Function()? updateProfileCompleted,
   }) {
     return updateProfileSucessfull?.call(user);
   }
@@ -476,6 +499,7 @@ class _$UpdateProfileStateSucessull implements UpdateProfileStateSucessull {
     TResult Function(Data user)? updateProfileSucessfull,
     TResult Function(String message)? updateProfileFailure,
     TResult Function(String message)? failure,
+    TResult Function()? updateProfileCompleted,
     required TResult orElse(),
   }) {
     if (updateProfileSucessfull != null) {
@@ -494,6 +518,8 @@ class _$UpdateProfileStateSucessull implements UpdateProfileStateSucessull {
     required TResult Function(UpdateProfileStateFailure value)
         updateProfileFailure,
     required TResult Function(ProfileStateFailure value) failure,
+    required TResult Function(UpdateProfileStateCompleted value)
+        updateProfileCompleted,
   }) {
     return updateProfileSucessfull(this);
   }
@@ -507,6 +533,7 @@ class _$UpdateProfileStateSucessull implements UpdateProfileStateSucessull {
         updateProfileSucessfull,
     TResult Function(UpdateProfileStateFailure value)? updateProfileFailure,
     TResult Function(ProfileStateFailure value)? failure,
+    TResult Function(UpdateProfileStateCompleted value)? updateProfileCompleted,
   }) {
     return updateProfileSucessfull?.call(this);
   }
@@ -520,6 +547,7 @@ class _$UpdateProfileStateSucessull implements UpdateProfileStateSucessull {
         updateProfileSucessfull,
     TResult Function(UpdateProfileStateFailure value)? updateProfileFailure,
     TResult Function(ProfileStateFailure value)? failure,
+    TResult Function(UpdateProfileStateCompleted value)? updateProfileCompleted,
     required TResult orElse(),
   }) {
     if (updateProfileSucessfull != null) {
@@ -612,6 +640,7 @@ class _$UpdateProfileStateFailure implements UpdateProfileStateFailure {
     required TResult Function(Data user) updateProfileSucessfull,
     required TResult Function(String message) updateProfileFailure,
     required TResult Function(String message) failure,
+    required TResult Function() updateProfileCompleted,
   }) {
     return updateProfileFailure(message);
   }
@@ -624,6 +653,7 @@ class _$UpdateProfileStateFailure implements UpdateProfileStateFailure {
     TResult Function(Data user)? updateProfileSucessfull,
     TResult Function(String message)? updateProfileFailure,
     TResult Function(String message)? failure,
+    TResult Function()? updateProfileCompleted,
   }) {
     return updateProfileFailure?.call(message);
   }
@@ -636,6 +666,7 @@ class _$UpdateProfileStateFailure implements UpdateProfileStateFailure {
     TResult Function(Data user)? updateProfileSucessfull,
     TResult Function(String message)? updateProfileFailure,
     TResult Function(String message)? failure,
+    TResult Function()? updateProfileCompleted,
     required TResult orElse(),
   }) {
     if (updateProfileFailure != null) {
@@ -654,6 +685,8 @@ class _$UpdateProfileStateFailure implements UpdateProfileStateFailure {
     required TResult Function(UpdateProfileStateFailure value)
         updateProfileFailure,
     required TResult Function(ProfileStateFailure value) failure,
+    required TResult Function(UpdateProfileStateCompleted value)
+        updateProfileCompleted,
   }) {
     return updateProfileFailure(this);
   }
@@ -667,6 +700,7 @@ class _$UpdateProfileStateFailure implements UpdateProfileStateFailure {
         updateProfileSucessfull,
     TResult Function(UpdateProfileStateFailure value)? updateProfileFailure,
     TResult Function(ProfileStateFailure value)? failure,
+    TResult Function(UpdateProfileStateCompleted value)? updateProfileCompleted,
   }) {
     return updateProfileFailure?.call(this);
   }
@@ -680,6 +714,7 @@ class _$UpdateProfileStateFailure implements UpdateProfileStateFailure {
         updateProfileSucessfull,
     TResult Function(UpdateProfileStateFailure value)? updateProfileFailure,
     TResult Function(ProfileStateFailure value)? failure,
+    TResult Function(UpdateProfileStateCompleted value)? updateProfileCompleted,
     required TResult orElse(),
   }) {
     if (updateProfileFailure != null) {
@@ -770,6 +805,7 @@ class _$ProfileStateFailure implements ProfileStateFailure {
     required TResult Function(Data user) updateProfileSucessfull,
     required TResult Function(String message) updateProfileFailure,
     required TResult Function(String message) failure,
+    required TResult Function() updateProfileCompleted,
   }) {
     return failure(message);
   }
@@ -782,6 +818,7 @@ class _$ProfileStateFailure implements ProfileStateFailure {
     TResult Function(Data user)? updateProfileSucessfull,
     TResult Function(String message)? updateProfileFailure,
     TResult Function(String message)? failure,
+    TResult Function()? updateProfileCompleted,
   }) {
     return failure?.call(message);
   }
@@ -794,6 +831,7 @@ class _$ProfileStateFailure implements ProfileStateFailure {
     TResult Function(Data user)? updateProfileSucessfull,
     TResult Function(String message)? updateProfileFailure,
     TResult Function(String message)? failure,
+    TResult Function()? updateProfileCompleted,
     required TResult orElse(),
   }) {
     if (failure != null) {
@@ -812,6 +850,8 @@ class _$ProfileStateFailure implements ProfileStateFailure {
     required TResult Function(UpdateProfileStateFailure value)
         updateProfileFailure,
     required TResult Function(ProfileStateFailure value) failure,
+    required TResult Function(UpdateProfileStateCompleted value)
+        updateProfileCompleted,
   }) {
     return failure(this);
   }
@@ -825,6 +865,7 @@ class _$ProfileStateFailure implements ProfileStateFailure {
         updateProfileSucessfull,
     TResult Function(UpdateProfileStateFailure value)? updateProfileFailure,
     TResult Function(ProfileStateFailure value)? failure,
+    TResult Function(UpdateProfileStateCompleted value)? updateProfileCompleted,
   }) {
     return failure?.call(this);
   }
@@ -838,6 +879,7 @@ class _$ProfileStateFailure implements ProfileStateFailure {
         updateProfileSucessfull,
     TResult Function(UpdateProfileStateFailure value)? updateProfileFailure,
     TResult Function(ProfileStateFailure value)? failure,
+    TResult Function(UpdateProfileStateCompleted value)? updateProfileCompleted,
     required TResult orElse(),
   }) {
     if (failure != null) {
@@ -855,4 +897,142 @@ abstract class ProfileStateFailure implements ProfileState {
   @JsonKey(ignore: true)
   _$$ProfileStateFailureCopyWith<_$ProfileStateFailure> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UpdateProfileStateCompletedCopyWith<$Res> {
+  factory _$$UpdateProfileStateCompletedCopyWith(
+          _$UpdateProfileStateCompleted value,
+          $Res Function(_$UpdateProfileStateCompleted) then) =
+      __$$UpdateProfileStateCompletedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$UpdateProfileStateCompletedCopyWithImpl<$Res>
+    extends _$ProfileStateCopyWithImpl<$Res>
+    implements _$$UpdateProfileStateCompletedCopyWith<$Res> {
+  __$$UpdateProfileStateCompletedCopyWithImpl(
+      _$UpdateProfileStateCompleted _value,
+      $Res Function(_$UpdateProfileStateCompleted) _then)
+      : super(_value, (v) => _then(v as _$UpdateProfileStateCompleted));
+
+  @override
+  _$UpdateProfileStateCompleted get _value =>
+      super._value as _$UpdateProfileStateCompleted;
+}
+
+/// @nodoc
+
+class _$UpdateProfileStateCompleted implements UpdateProfileStateCompleted {
+  const _$UpdateProfileStateCompleted();
+
+  @override
+  String toString() {
+    return 'ProfileState.updateProfileCompleted()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UpdateProfileStateCompleted);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loading,
+    required TResult Function(Data user) success,
+    required TResult Function(Data user) updateProfileSucessfull,
+    required TResult Function(String message) updateProfileFailure,
+    required TResult Function(String message) failure,
+    required TResult Function() updateProfileCompleted,
+  }) {
+    return updateProfileCompleted();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? loading,
+    TResult Function(Data user)? success,
+    TResult Function(Data user)? updateProfileSucessfull,
+    TResult Function(String message)? updateProfileFailure,
+    TResult Function(String message)? failure,
+    TResult Function()? updateProfileCompleted,
+  }) {
+    return updateProfileCompleted?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loading,
+    TResult Function(Data user)? success,
+    TResult Function(Data user)? updateProfileSucessfull,
+    TResult Function(String message)? updateProfileFailure,
+    TResult Function(String message)? failure,
+    TResult Function()? updateProfileCompleted,
+    required TResult orElse(),
+  }) {
+    if (updateProfileCompleted != null) {
+      return updateProfileCompleted();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ProfileStateLoading value) loading,
+    required TResult Function(ProfileStateSuccess value) success,
+    required TResult Function(UpdateProfileStateSucessull value)
+        updateProfileSucessfull,
+    required TResult Function(UpdateProfileStateFailure value)
+        updateProfileFailure,
+    required TResult Function(ProfileStateFailure value) failure,
+    required TResult Function(UpdateProfileStateCompleted value)
+        updateProfileCompleted,
+  }) {
+    return updateProfileCompleted(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(ProfileStateLoading value)? loading,
+    TResult Function(ProfileStateSuccess value)? success,
+    TResult Function(UpdateProfileStateSucessull value)?
+        updateProfileSucessfull,
+    TResult Function(UpdateProfileStateFailure value)? updateProfileFailure,
+    TResult Function(ProfileStateFailure value)? failure,
+    TResult Function(UpdateProfileStateCompleted value)? updateProfileCompleted,
+  }) {
+    return updateProfileCompleted?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ProfileStateLoading value)? loading,
+    TResult Function(ProfileStateSuccess value)? success,
+    TResult Function(UpdateProfileStateSucessull value)?
+        updateProfileSucessfull,
+    TResult Function(UpdateProfileStateFailure value)? updateProfileFailure,
+    TResult Function(ProfileStateFailure value)? failure,
+    TResult Function(UpdateProfileStateCompleted value)? updateProfileCompleted,
+    required TResult orElse(),
+  }) {
+    if (updateProfileCompleted != null) {
+      return updateProfileCompleted(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UpdateProfileStateCompleted implements ProfileState {
+  const factory UpdateProfileStateCompleted() = _$UpdateProfileStateCompleted;
 }

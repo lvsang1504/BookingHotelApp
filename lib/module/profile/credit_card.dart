@@ -66,13 +66,11 @@ class _AddCreditCardState extends State<AddCreditCard> {
             title: "Notification",
             content: "You have paid your bill, wish you a happy journey.",
             positive: "Let's go",
-            onPositiveTap: () => Navigator.pop(context),
-
-            onNegativeTap: () {
-              // bookingCubit.emit(state)
-              print('Completed');
+            onPositiveTap: () {
+              Navigator.pop(context);
               bookingCubit.completed();
             },
+            onNegativeTap: () {},
             isShowNegative: false,
           ),
         );
