@@ -120,7 +120,7 @@ class _BookingRoomState extends State<BookingRoom> {
               ),
               title: const Text(
                 'Book Now',
-                style: TextStyle(fontFamily: "Sofia", color: Colors.black),
+                style: TextStyle(fontFamily: "Sofia", color: Colors.black, fontSize: 22, fontWeight: FontWeight.bold),
               ),
             ),
             body: SingleChildScrollView(
@@ -130,41 +130,41 @@ class _BookingRoomState extends State<BookingRoom> {
                   children: [
                     Column(
                       children: [
-                        const Text(
-                          "Name",
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontFamily: "Sofia",
-                              fontWeight: FontWeight.w700,
-                              fontSize: 20.0),
-                        ),
-                        const Text(
-                          "Email",
-                          style: TextStyle(
-                              color: Colors.black38,
-                              fontFamily: "Sofia",
-                              fontWeight: FontWeight.w300,
-                              fontSize: 16.0),
-                        ),
-                        Container(
-                          height: 90.0,
-                          width: 90.0,
-                          decoration: BoxDecoration(
-                              image: const DecorationImage(
-                                  image: NetworkImage(
-                                      "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png"),
-                                  fit: BoxFit.cover),
-                              color: Colors.white,
-                              borderRadius: const BorderRadius.all(
-                                Radius.circular(50.0),
-                              ),
-                              boxShadow: [
-                                BoxShadow(
-                                    color: Colors.black12.withOpacity(0.1),
-                                    blurRadius: 10.0,
-                                    spreadRadius: 2.0)
-                              ]),
-                        ),
+                        // const Text(
+                        //   "Name",
+                        //   style: TextStyle(
+                        //       color: Colors.black,
+                        //       fontFamily: "Sofia",
+                        //       fontWeight: FontWeight.w700,
+                        //       fontSize: 20.0),
+                        // ),
+                        // const Text(
+                        //   "Email",
+                        //   style: TextStyle(
+                        //       color: Colors.black38,
+                        //       fontFamily: "Sofia",
+                        //       fontWeight: FontWeight.w300,
+                        //       fontSize: 16.0),
+                        // ),
+                        // Container(
+                        //   height: 90.0,
+                        //   width: 90.0,
+                        //   decoration: BoxDecoration(
+                        //       image: const DecorationImage(
+                        //           image: NetworkImage(
+                        //               "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png"),
+                        //           fit: BoxFit.cover),
+                        //       color: Colors.white,
+                        //       borderRadius: const BorderRadius.all(
+                        //         Radius.circular(50.0),
+                        //       ),
+                        //       boxShadow: [
+                        //         BoxShadow(
+                        //             color: Colors.black12.withOpacity(0.1),
+                        //             blurRadius: 10.0,
+                        //             spreadRadius: 2.0)
+                        //       ]),
+                        // ),
                         getTimeDateUI(),
                         Container(
                           color: Colors.white,
@@ -243,7 +243,7 @@ class _BookingRoomState extends State<BookingRoom> {
                                               color: Colors.white,
                                               fontSize: 19.0,
                                               fontFamily: "Sofia",
-                                              fontWeight: FontWeight.w600),
+                                              fontWeight: FontWeight.bold),
                                         ),
                                       ),
                                     ),
